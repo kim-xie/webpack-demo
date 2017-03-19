@@ -1,5 +1,3 @@
-//引入css样式
-require('../css/style.css')
 //入口文件js
 document.write('IM webpack quickstart </br>')
 //引入js文件 按顺序加载
