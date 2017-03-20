@@ -1,7 +1,8 @@
 //入口文件js
-document.write('IM webpack quickstart </br>')
+document.write('Im webpack quickstart </br>');
 //引入js文件 按顺序加载
-document.write(require('./module.js'))
+document.write(require('./module.js'));
+
 //引入图片
 var img1 = new Image();
 var img2 = document.createElement('img');
