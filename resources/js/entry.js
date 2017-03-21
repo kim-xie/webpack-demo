@@ -13,5 +13,7 @@ var src2 = require('../img/no-msg-bg.png');
 img1.src = src1;
 img2.src = src2;
 
-document.body.appendChild(img1);
+//document.body.appendChild(img1);
 document.body.appendChild(img2);
+
+$("body").append(img1);
