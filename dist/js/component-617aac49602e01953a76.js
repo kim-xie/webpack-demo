@@ -1,17 +1,4 @@
-<!doctype html>
-<html>
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>webpack demo test</title>
-
-  <link href="../css/css.css" rel="stylesheet">
-  <script type="application/javascript">
-  	/*引入公共js文件*/
-  	/*! This file is created by kim */
+/*! This file is created by kim */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -77,7 +64,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11096,74 +11083,77 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = 'just a webpack demo.';
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _banner = __webpack_require__(10);
+
+var _banner2 = _interopRequireDefault(_banner);
+
+__webpack_require__(9);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function banner() {
+  return {
+    name: 'banner',
+    temp: _banner2.default
+  };
+}
+
+exports.default = banner;
 
 /***/ }),
+/* 2 */,
 /* 3 */,
 /* 4 */,
 /* 5 */,
 /* 6 */,
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "images/no-msg-bg-6eaeb.png";
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "images/no-works-c8762.jpg";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"banner\">\r\n  <h1> banner </h1>\r\n</div>\r\n";
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-//入口文件js
-document.write('Im webpack quickstart </br>');
-//引入js文件 按顺序加载
-document.write(__webpack_require__(2));
+var _banner = __webpack_require__(1);
 
-//引入图片
-var img1 = new Image();
-var img2 = document.createElement('img');
+var _banner2 = _interopRequireDefault(_banner);
 
-img1.src = __webpack_require__(8);
-img2.src = __webpack_require__(7);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//document.body.appendChild(img1);
-document.body.appendChild(img2);
+var InitBanner = function InitBanner() {
+  //var bannerDom = document.getElementById('banner');
+  var bannerDom = $('#banner');
+  var banner = new _banner2.default();
+  //bannerDom.innerHTML = banner.temp;
+  bannerDom.html(banner.temp);
+}; //var $ = require("jquery");
+//引入banner
 
-$("body").append(img1);
+
+new InitBanner();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
-/******/ ]);//过滤publicPath
-  </script>
-
- </head>
- <body>
-	Wed Mar 22 2017 23:57:35 GMT+0800 (中国标准时间)
-	<!--通用模板-->
-  
-	
-  
-	
-	<script type="application/javascript" src="js/css-352d87e5c33d1f7cbddf.js"></script>
-	
-  
- </body>
-</html>
+/******/ ]);

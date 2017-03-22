@@ -7,11 +7,13 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <link href="../css/css.css" rel="stylesheet">
   <script type="application/javascript">
   	/*引入公共js文件*/
-    //过滤publicPath
-  	<%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+  	<%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>//过滤publicPath
   </script>
+
  </head>
  <body>
 	<%= htmlWebpackPlugin.options.date %>

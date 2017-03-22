@@ -1,17 +1,4 @@
-<!doctype html>
-<html>
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>webpack demo test</title>
-
-  <link href="../css/css.css" rel="stylesheet">
-  <script type="application/javascript">
-  	/*引入公共js文件*/
-  	/*! This file is created by kim */
+/*! This file is created by kim */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -77,11 +64,12 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11096,37 +11084,8 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-module.exports = 'just a webpack demo.';
-
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "images/no-msg-bg-6eaeb.png";
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "images/no-works-c8762.jpg";
-
-/***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11141,8 +11100,8 @@ document.write(__webpack_require__(2));
 var img1 = new Image();
 var img2 = document.createElement('img');
 
-img1.src = __webpack_require__(8);
-img2.src = __webpack_require__(7);
+img1.src = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"resources/img/no-works.jpg\""); e.code = 'MODULE_NOT_FOUND';; throw e; }()));
+img2.src = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"resources/img/no-msg-bg.png\""); e.code = 'MODULE_NOT_FOUND';; throw e; }()));
 
 //document.body.appendChild(img1);
 document.body.appendChild(img2);
@@ -11150,20 +11109,16 @@ document.body.appendChild(img2);
 $("body").append(img1);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
-/***/ })
-/******/ ]);//过滤publicPath
-  </script>
+/***/ }),
 
- </head>
- <body>
-	Wed Mar 22 2017 23:57:35 GMT+0800 (中国标准时间)
-	<!--通用模板-->
-  
-	
-  
-	
-	<script type="application/javascript" src="js/css-352d87e5c33d1f7cbddf.js"></script>
-	
-  
- </body>
-</html>
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = 'just a webpack demo.';
+
+/***/ })
+
+/******/ });

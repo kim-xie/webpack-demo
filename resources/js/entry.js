@@ -7,11 +7,8 @@ document.write(require('./module.js'));
 var img1 = new Image();
 var img2 = document.createElement('img');
 
-var src1 = require('../img/no-works.jpg');
-var src2 = require('../img/no-msg-bg.png');
-
-img1.src = src1;
-img2.src = src2;
+img1.src = require('../img/no-works.jpg');
+img2.src = require('../img/no-msg-bg.png');
 
 //document.body.appendChild(img1);
 document.body.appendChild(img2);

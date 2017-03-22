@@ -1,0 +1,20 @@
+/*! This file is created by kim */
+*{padding:0;margin:0;}
+body{family:"\5FAE\8F6F\96C5\9ED1";font-size:12px;}
+a{text-decoration:none;}
+ul,ol li{list-style:none;}
+.box{display: -webkit-box;display: -ms-flexbox;display: flex;}
+body{background:blue;}
+.box1{display: -webkit-box;display: -ms-flexbox;display: flex;}
+.box {
+  color: #fe33ac;
+  border-color: #fdcdea;
+}
+.box div {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.border-top {
+  border-top: 1px solid #ccc; }
+
+body {
+  font: 12px/1.5; }

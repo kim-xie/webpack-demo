@@ -1,17 +1,4 @@
-<!doctype html>
-<html>
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>webpack demo test</title>
-
-  <link href="../css/css.css" rel="stylesheet">
-  <script type="application/javascript">
-  	/*引入公共js文件*/
-  	/*! This file is created by kim */
+/*! This file is created by kim */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -11151,19 +11138,4 @@ $("body").append(img1);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
-/******/ ]);//过滤publicPath
-  </script>
-
- </head>
- <body>
-	Wed Mar 22 2017 23:57:35 GMT+0800 (中国标准时间)
-	<!--通用模板-->
-  
-	
-  
-	
-	<script type="application/javascript" src="js/css-352d87e5c33d1f7cbddf.js"></script>
-	
-  
- </body>
-</html>
+/******/ ]);
