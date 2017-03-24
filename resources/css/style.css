@@ -1,4 +1,5 @@
-@import "style0.css";
+@import "./importstyle.css";
 
-body{background:blue;}
+/************************style.css  start******************************/
 .box1{display: flex;}
+/************************style.css  end******************************/

@@ -1,11 +1,17 @@
 /*! This file is created by kim */
+/************************common.css  start******************************/
 *{padding:0;margin:0;}
-body{family:"\5FAE\8F6F\96C5\9ED1";font-size:12px;}
+body{family:"\5FAE\8F6F\96C5\9ED1";font-size:12px;background:red;}
 a{text-decoration:none;}
 ul,ol li{list-style:none;}
-.box{display: -webkit-box;display: -ms-flexbox;display: flex;}
-body{background:blue;}
+/************************common.css  end******************************/
+/************************importstyle.css  start******************************/
+.box2{display: -webkit-box;display: -ms-flexbox;display: flex;}
+/************************importstyle.css  end******************************/
+/************************style.css  start******************************/
 .box1{display: -webkit-box;display: -ms-flexbox;display: flex;}
+/************************style.css  end******************************/
+/************************lessstyle.css  start******************************/
 .box {
   color: #fe33ac;
   border-color: #fdcdea;
@@ -13,8 +19,12 @@ body{background:blue;}
 .box div {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+/************************lessstyle.css  end******************************/
+/************************sassstyle.css  start******************************/
 .border-top {
   border-top: 1px solid #ccc; }
 
 body {
   font: 12px/1.5; }
+
+/************************sassstyle.css  end******************************/

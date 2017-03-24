@@ -5,7 +5,9 @@
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --config webpack.config.js --progress --colors --display-modules --display-reasons"
+    "webpack": "webpack --config webpack.config.js --progress --colors --display-modules --display-reasons",
+    "build": "webpack --config webpack.config.js -p --progress --colors",
+    "start": "webpack-dev-server --hot --inline --colors"
   },
   "keywords": [
     "webpack"
@@ -17,6 +19,7 @@
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-latest": "^6.24.0",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.26.2",
     "expose-loader": "^0.7.3",
     "extract-text-webpack-plugin": "^2.1.0",
@@ -26,6 +29,7 @@
     "html-withimg-loader": "^0.1.16",
     "image-webpack-loader": "^3.2.0",
     "jquery": "^1.12.4",
+    "json-loader": "^0.5.4",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "node-sass": "^4.5.0",

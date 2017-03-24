@@ -64,7 +64,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11093,11 +11093,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _banner = __webpack_require__(8);
+var _banner = __webpack_require__(11);
 
 var _banner2 = _interopRequireDefault(_banner);
 
-__webpack_require__(7);
+__webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11119,16 +11119,26 @@ exports.default = banner;
 /* 7 */
 /***/ (function(module, exports) {
 
+module.exports = {
+	"greetText": "Hi there and greetings from JSON!"
+};
+
+/***/ }),
+/* 8 */,
+/* 9 */,
+/* 10 */
+/***/ (function(module, exports) {
+
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"banner\">\r\n  <h1> banner </h1>\r\n</div>\r\n";
+module.exports = "<div class=\"banner\">\r\n  <h1> banner </h1>\r\n  <span> </span>\r\n</div>\r\n";
 
 /***/ }),
-/* 9 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11140,15 +11150,21 @@ var _banner2 = _interopRequireDefault(_banner);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var config = __webpack_require__(7);
+
+//引入banner
+
+
 var InitBanner = function InitBanner() {
   //var bannerDom = document.getElementById('banner');
   var bannerDom = $('#banner');
   var banner = new _banner2.default();
+
+  alert(config.greetText);
+
   //bannerDom.innerHTML = banner.temp;
   bannerDom.html(banner.temp);
-}; //var $ = require("jquery");
-//引入banner
-
+};
 
 new InitBanner();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))

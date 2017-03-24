@@ -1,2 +1,3 @@
 /*! This file is created by kim */
 .banner{width: 800px;height:200px;border: 1px solid green;margin:100px auto; }
+span {display: block;border: 1px solid red; height: 20px;color:#fff;}

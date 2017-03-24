@@ -4,6 +4,14 @@ var path = require('path');
 var htmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+
+function useHotPlugin(){
+	// 热模块替换  配合new webpack.HotModuleReplacementPlugin()使用
+	// 'webpack/hot/dev-server',
+	// 'webpack-dev-server/client?http://localhost:8080',
+	return 'webpack/hot/dev-server';
+}
 
 module.exports = {
 	//应用上下文
@@ -20,9 +28,7 @@ module.exports = {
 		//     'bootstrap/css/bootstrap.css',
 		//     'bootstrap/js/bootstrap.js',
 		// ],
-		// 热模块替换
-		// 'webpack/hot/dev-server',
-    // 'webpack-dev-server/client?http://localhost:8080',
+
   	main: path.join(__dirname,'resources/js/entry.js'),
   	css: path.join(__dirname,'resources/js/css.js'),
 		component: path.join(__dirname,'resources/js/app.js')
@@ -30,7 +36,7 @@ module.exports = {
   //文件出口
   output: {
   	path: path.join(__dirname,'dist'),//文件出口的路径zoz
-    filename: 'js/[name]-[chunkhash].js'//出口文件名称  --[name] --[hash] --[chunkhash] hash--只有里面的内容改变了hash值才会改变   跟版本控制有关
+    filename: 'js/[name]-[hash].js'//出口文件名称  --[name] --[hash] --[chunkhash] hash--只有里面的内容改变了hash值才会改变   跟版本控制有关
     //publicPath: path.join(__dirname,"/dist"), //上线后的出口文件url
 		//chunkFilename: '' //
   },
@@ -58,6 +64,16 @@ module.exports = {
 				include: path.resolve(__dirname,"resources"),//加载转换的路径'./resources/js/'
 				exclude: path.resolve(__dirname,"node_modules"),//排除的路径'./node_modules/'
 				query: { presets: ['latest'] }//将最近的几个ES版本的转换为浏览器可执行的JS
+				//loaders: ['','']
+			},
+
+			//json加载器
+		  {
+				test: /\.json$/,
+				loader: 'json-loader',
+				include: path.resolve(__dirname,"resources"),//加载转换的路径'./resources/js/'
+				exclude: path.resolve(__dirname,"node_modules"),//排除的路径'./node_modules/'
+				//query: { presets: ['latest'] }//将最近的几个ES版本的转换为浏览器可执行的JS
 				//loaders: ['','']
 			},
 
@@ -130,27 +146,45 @@ module.exports = {
 	// ],
 
 	plugins: [
-		//热模块替换
-		// new webpack.HotModuleReplacementPlugin(),
+		//用于在building之前删除你以前build过的文件
+		// new CleanWebpackPlugin(['dist/css','dist/js','dist/images'], {//['dist/css','dist/js','dist/images']
+		// 	root:__dirname,//一个根的绝对路径.
+		// 	verbose: true,//将log写到 console.
+		// 	dry: false,//不要删除任何东西，主要用于测试.
+		// 	//exclude: ['webpack.html']//排除不删除的目录，主要用于避免删除公用的文件
+		// }),
+
+		//new webpack.optimize.DedupePlugin(),//对引用的库中引用的完全相同的模块进行去重
+
+		//new webpack.optimize.OccurrenceOrderPlugin(),// 给最常用的 id 分配最简短的 id
+
+		//热模块替换   --全局开启代码热替换
+		//new webpack.HotModuleReplacementPlugin(),
 
 		//打开浏览器插件
-		new OpenBrowserPlugin({
-      url: 'http://localhost:8080/dist/index.html'
-    }),
+		new OpenBrowserPlugin({ url: 'http://localhost:8080/' }),
 
     // banner插件
     new webpack.BannerPlugin('This file is created by kim'),
 
 		//单独使用link标签加载css并设置其路径  通过 style 标签引入样式可能会让页面的代码看起来非常的庞大非常的凌乱，有时候我们需要将所有的样式导出到一个独立的样式文件，然后通过 link 标签引入样式文件。
-		new ExtractTextPlugin("css/[name].css"),
+		new ExtractTextPlugin({
+			filename: "css/[name].css",
+			//disable: false,
+			//allChunks: true //(是否将分散的css文件合并成一个文件)
+		}),
+
 
 		//多个 html共用一个js文件(chunk)，可用CommonsChunkPlugin
 		//可生成多个CommonsChunkPlugin   提取公共部分文件
 		// new webpack.optimize.CommonsChunkPlugin({
     //   name: "common",
     //   filename: "js/common.js",
-    // 	 chunks: ['main','css'],
-		//   minChunks : 3,//被3个入口所引用的模块将会被视为公共代码打包到common中
+    // 	 chunks: ['main','css'],//在chunks中提取公共引入的部分
+		//   minChunks: 3,//被3个入口所引用的模块将会被视为公共代码打包到common中  Infinity
+		//	 children: true,
+		//	 async: true ,
+		//	 minSize: 1024,
     // }),
 
 		//加载全局jquery 将变量当作全局模块 在各个模块中引入var $ = require("jquery");  如果文件来自CDN就是在script标签中引入
@@ -166,14 +200,18 @@ module.exports = {
 
     // js压缩
     // new webpack.optimize.UglifyJsPlugin({
-	  //   compress: {
+	  //  compress: {
 	  //     warnings: false,//压缩时没有警告
 	  //   },
-	  //   output: {
-	  //     comments: true,//压缩后文件去掉js注释
-	  //   },
-		//  minimize: true,
-		// 	except: ['$super', '$', 'exports', 'require'] //排除关键字
+	  //  output: {
+	  //     comments: false,//压缩后文件去掉js注释
+	  //  },
+		//  beautify: true, //美化输出
+		//	sourceMap: true, //报错时定位到报错位置
+		//	comments: /**/, //注释样式
+		// 	mangle: {
+    //    except: ['$super', '$', 'exports', 'require'] //排除关键字
+    //	}
     // }),
 
     //htmlWebpackPlugin html文件自动关联打包后的js文件--不用手动添加打包后的js
@@ -222,21 +260,21 @@ module.exports = {
 				 	})
 				],
 	      devServer: {
-	         contentBase: path.join(__dirname,"dist"), //本地服务器所加载的页面所在的目录
-	         colors: true, //终端中输出结果为彩色
-	         historyApiFallback: true, //不跳转
-	         inline: true, //实时刷新
-					 hot: true, //启动热替换
-					 progress: true, //显示进度条
-				  //  port : 7777, //指定端口
+	        contentBase: path.join(__dirname,"dist"), //本地服务器所加载的页面所在的目录
+	        colors: true, //终端中输出结果为彩色
+	        historyApiFallback: true, //不跳转
+	        inline: true, //实时刷新
+					hot: true, //启动热替换
+					progress: true, //显示进度条
+				  port : 8080, //指定端口
 				  //  proxy :{ //使用代理
-			    //     '/proxy/*':{
-			    //         target : 'http://localhost:8082',
+			    //     '/http://proxy/*':{
+			    //         target : 'http://localhost:8080',
 			    //         secure : false
 			    //     }
-			    //  }
+			    // }
 	       }
-	    }
+	     }
 	  })
   ],
 
@@ -249,8 +287,7 @@ module.exports = {
 	//		 root: path.resolve(__dirname),
   //     moduledirectories:["web_loaders", "web_modules", "node_loaders", "node_modules"],
 	//		 packageMains: ["webpackLoader", "webLoader", "loader", "main"],
-  //     extensions: [".js", ".jsx","json"],
-  //     alias: {
+  //     extensions: [".js", ".jsx",".json",".css",".scss",".jpg",".png","jepg"],
   //         'jquery': __dirname + 'resources/js/jquery-vendor.js',//在各个模块中引入var $ = require("jquery");  如果文件在本地,使用它
   //     }
   // },

@@ -64,12 +64,11 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11084,8 +11083,38 @@ return jQuery;
 
 
 /***/ }),
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 11:
+"use strict";
+
+
+module.exports = 'just a webpack demo.';
+
+/***/ }),
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/no-msg-bg-6eaeb.png";
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/no-works-c8762.jpg";
+
+/***/ }),
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11100,8 +11129,8 @@ document.write(__webpack_require__(2));
 var img1 = new Image();
 var img2 = document.createElement('img');
 
-img1.src = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./resources/img/no-works.jpg\""); e.code = 'MODULE_NOT_FOUND';; throw e; }()));
-img2.src = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./resources/img/no-msg-bg.png\""); e.code = 'MODULE_NOT_FOUND';; throw e; }()));
+img1.src = __webpack_require__(9);
+img2.src = __webpack_require__(8);
 
 //document.body.appendChild(img1);
 document.body.appendChild(img2);
@@ -11109,16 +11138,5 @@ document.body.appendChild(img2);
 $("body").append(img1);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = 'just a webpack demo.';
-
 /***/ })
-
-/******/ });
+/******/ ]);

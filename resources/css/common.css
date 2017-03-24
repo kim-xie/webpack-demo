@@ -1,4 +1,6 @@
+/************************common.css  start******************************/
 *{padding:0;margin:0;}
-body{family:"微软雅黑";font-size:12px;}
+body{family:"微软雅黑";font-size:12px;background:red;}
 a{text-decoration:none;}
 ul,ol li{list-style:none;}
+/************************common.css  end******************************/
